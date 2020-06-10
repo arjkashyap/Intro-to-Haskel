@@ -51,24 +51,18 @@ getNMultiples n m = take n [m, m*2..]
 -- It's like cycling a list with only one element.
 
 
+-- list comprehension
+-- comprehension that replaces each odd number greater than 10 with "BANG!"
+-- and each odd number that's less than 10 with "BOOM!".
+-- If a number isn't odd, we throw it but of our list.
+boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]
+
+-- We can include several predicates with ,
+-- We can have draw from multiple lists using multiple pridicates
+-- In the below list, we want to get the prouct of all the odd and even number
+-- from 1 to n which are not div by 5 and are bigger than 10
+mulOddEven n = [o*e | o <- [1, 3..n] , e <- [2, 4..n], o*e `mod` 5 /= 0, o*e > 10 ]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+removeLowerCase str = [ s | s <- str, s `elem` ['A'..'Z'] ]
 
