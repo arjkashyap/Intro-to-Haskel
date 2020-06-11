@@ -66,3 +66,8 @@ mulOddEven n = [o*e | o <- [1, 3..n] , e <- [2, 4..n], o*e `mod` 5 /= 0, o*e > 1
 
 removeLowerCase str = [ s | s <- str, s `elem` ['A'..'Z'] ]
 
+-- Nested list comp are also possible
+-- In the follwing func, we remove odd numbers from a 2D list
+
+removeOdd matrix = [ [x | x <- row , even x] | row <- matrix ]
+
