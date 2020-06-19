@@ -39,8 +39,32 @@ third (_, _, z) = z
 addPoints3D :: (Num a) => (a, a, a) -> (a, a, a) -> (a, a, a)
 addPoints3D p1 p2 = (first p1 + first p2, second p1 + second p2, third p1 + third p2)
 
+-- In haskel lists, suppose we have [1, 2, 3, 4]. This can be represented as 1:2:3:[]
+-- The former the just a syntactic sugar. We can use this logic to bind elements to our 
+-- Variables, combined with the fact that lists can also be used in patter matching
+-- Lets write our own head function.
+-- If you want to bind _ to several vars, you have to use ()
+getHead :: [a]-> a
+getHead [] = error "The list is empty . . "
+getHead (x:_) = x
 
 
 
+-- Another generic list function for explanation
+-- Member of show TC can be presented as a string
+getItems :: (Show a) => [a] -> String
+getItems [] = "List is empty"
+getItems (x:[]) = "List has only " ++ show x
+getItems (x:y:[]) = "List has two items " ++ show x  ++ " and " ++ show y
+getItems (x:y:_) = "List is long and full of elements"
 
 
+-- Implementing our own lenght function using recurssion and pattern matching
+len :: (Num b) => [a] -> b
+len [] = 0
+len (_:item) = 1 + len item
+
+-- Similarly let us implement a sum function
+sumIt ::  (Num a) => [a] -> a
+sumIt [] = 0
+sumIt (x : xs) = x + sumIt xs
