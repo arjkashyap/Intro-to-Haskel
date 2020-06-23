@@ -44,5 +44,13 @@ cylinderSA r h =
 -- Difference b/w where and let aside from the fact 
 -- that let is binding first and usage later is
 -- let is an expression much like if
+-- Demonstrated with an example
+sumAndEval = ( let(a, b, c) = (1, 2, 3) in a + b + c ) * 100
+-- Notice how we use tuples in the above example to destructure bindings
 
-  
+-- You can bind functions to lets
+sqList :: (Num a) => [a] -> [a]
+sqList xs =  let sq a = a * a in [ sq x | x <- xs ]
+
+-- Binding more than one vars inline can be done with ; 
+-- eg: let a = 12, b = 6, d = 19 in a*b*c
