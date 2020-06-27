@@ -39,6 +39,14 @@ take' n (x:xs) = x : take' (n-1) xs
 -- In the above function, notice how we ommit the otherwise
 -- This is because, the function will not run if we put n > len lst
 
---
+-- Replicating reverse function
+-- takes a list as an argument and reverses it
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' [x] = [x]
+reverse' (x:xs) = (reverse' xs) ++ [x]
 
-
+-- Replicating zip function
+zip' [] _ = []
+zip' _ [] = []
+zip (x:xs) (y:ys) = (x, y): zip' xs ys
