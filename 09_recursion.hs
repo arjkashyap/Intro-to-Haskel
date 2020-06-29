@@ -50,3 +50,21 @@ reverse' (x:xs) = (reverse' xs) ++ [x]
 zip' [] _ = []
 zip' _ [] = []
 zip (x:xs) (y:ys) = (x, y): zip' xs ys
+
+
+-- Implementing Quick sort in haskel
+quickSort :: (Ord a) => [a] -> [a]
+quickSort [] = []
+quickSort (x:xs) =
+    let smallerElements = quickSort [ a | a <- xs, a <= x ]
+        largerElements = quickSort [ a | a <- xs, a > x ]
+    in smallerElements ++ [x] ++ largerElements
+
+
+
+
+
+
+
+
+
