@@ -1,0 +1,7 @@
+packages: []
+resolver: lts-13.29
+extra-deps:
+- hsdev-0.3.3.1
+- haddock-api-2.21.0
+- hdocs-0.5.3.1
+- network-3.0.1.1
