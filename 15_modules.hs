@@ -85,6 +85,3 @@ breakSentence xs = words xs
 
 
 -- delete takes an element and a list and deletes the first occurence of that element in the list.
-
-
-
